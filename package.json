@@ -1,0 +1,32 @@
+{
+  "name": "react-reality-holokit",
+  "version": "1.0.0",
+  "description": "Holokit support for React Reality",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhdeck/react-reality-holokit.git"
+  },
+  "keywords": [
+    "react-native",
+    "ar",
+    "augmented-reality",
+    "holokit"
+  ],
+  "peerDependencies": {
+    "react-native-device-info": "*",
+    "react-reality": "rhdeck/react-reality",
+    "prop-types": "*",
+    "react-native": "*",
+    "react": "*"
+  },
+  "author": "Ray Deck",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rhdeck/react-reality-holokit/issues"
+  },
+  "homepage": "https://github.com/rhdeck/react-reality-holokit#readme"
+}
