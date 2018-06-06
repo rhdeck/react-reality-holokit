@@ -1,7 +1,7 @@
 import { requireNativeComponent } from "react-native";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import { RHDSessionConsumer } from "./RHDSessionProvider";
+import { RHDSessionConsumer } from "react-reality";
 class RHDBasePrimaryView extends Component {
   render() {
     var out = [
