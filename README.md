@@ -1,6 +1,6 @@
 # react-reality-holokit
 
-Extension for React Reality to support stereoscopic headmounted AR via use of the [Holokit](https://holokit.io).
+Extension for [React Reality](https://github.com/rhdeck/react-reality) to support stereoscopic headmounted AR via use of the [Holokit](https://holokit.io).
 
 # Installation
 
