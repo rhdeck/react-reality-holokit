@@ -28,5 +28,10 @@
   "bugs": {
     "url": "https://github.com/rhdeck/react-reality-holokit/issues"
   },
-  "homepage": "https://github.com/rhdeck/react-reality-holokit#readme"
+  "homepage": "https://github.com/rhdeck/react-reality-holokit#readme",
+  "dependencies": {
+    "react": "^16.4.0",
+    "react-native": "^0.55.4",
+    "react-native-device-info": "^0.21.5"
+  }
 }

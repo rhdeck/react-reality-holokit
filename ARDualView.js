@@ -9,8 +9,8 @@ import {
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import RNDI from "react-native-device-info";
-import RHDPrimaryView from "./RHDPrimaryView";
-import RHDSecondaryView from "./RHDSecondaryView";
+import ARPrimaryView from "./ARPrimaryView";
+import ARSecondaryView from "./ARSecondaryView";
 const MetersPerInch = 0.0254;
 const ipd = 0.064;
 console.log("hi there!!!", ipd * PointsPerMeter, PixelsPerPoint, PixelsPerInch);
@@ -33,7 +33,7 @@ const DeviceAliases = {
 };
 const thisModel = RNDI.getModel();
 const { pixels, ppi, points } = DeviceDB[DeviceAliases[thisModel]];
-class RHDDualView extends Component {
+class ARDualView extends Component {
   calculateIPD() {
     const ipd = this.props.interPupillaryDistance;
     const PixelsPerPoint = pixels / points;
@@ -65,13 +65,13 @@ class RHDDualView extends Component {
             width: this.calculateIPD() * 2
           }}
         >
-          <RHDPrimaryView
+          <ARPrimaryView
             {...this.props}
             style={{
               flex: 1
             }}
           />
-          <RHDSecondaryView
+          <ARSecondaryView
             style={{
               flex: 1
             }}
@@ -81,10 +81,10 @@ class RHDDualView extends Component {
     );
   }
 }
-RHDDualView.propTypes = {
-  ...RHDPrimaryView.propTypes
+ARDualView.propTypes = {
+  ...ARPrimaryView.propTypes
 };
-RHDDualView.defaultProps = {
+ARDualView.defaultProps = {
   interPupillaryDistance: 0.064
 };
-export default RHDDualView;
+export default ARDualView;

@@ -1,17 +1,17 @@
 import { requireNativeComponent } from "react-native";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import { RHDSessionConsumer } from "react-reality";
-class RHDBasePrimaryView extends Component {
+import { ARSessionConsumer } from "react-reality";
+class ARBasePrimaryView extends Component {
   render() {
     var out = [
-      <NativeV {...this.props} children={null} key="RHDPrimaryViewNative" />
+      <NativeV {...this.props} children={null} key="ARPrimaryViewNative" />
     ];
     if (typeof this.props.children == "function") {
       out.push(
-        <RHDSessionConsumer key="RHDPrimaryViewConsumer">
+        <ARSessionConsumer key="ARPrimaryViewConsumer">
           {this.props.children}
-        </RHDSessionConsumer>
+        </ARSessionConsumer>
       );
     } else {
       out.push(this.props.children);
@@ -26,20 +26,20 @@ class RHDBasePrimaryView extends Component {
     if (typeof this.props.stop == "function") this.props.stop();
   }
 }
-RHDBasePrimaryView.propTypes = {
+ARBasePrimaryView.propTypes = {
   interPupilaryDistance: PropTypes.number,
   start: PropTypes.func,
   stop: PropTypes.func
 };
-const NativeV = requireNativeComponent("RHDPrimaryView", RHDBasePrimaryView);
-const RHDPrimaryView = props => {
+const NativeV = requireNativeComponent("ARPrimaryView", ARBasePrimaryView);
+const ARPrimaryView = props => {
   return (
-    <RHDSessionConsumer>
+    <ARSessionConsumer>
       {({ start, stop }) => {
-        return <RHDBasePrimaryView {...props} start={start} stop={stop} />;
+        return <ARBasePrimaryView {...props} start={start} stop={stop} />;
       }}
-    </RHDSessionConsumer>
+    </ARSessionConsumer>
   );
 };
-RHDPrimaryView.propTypes = { ...RHDBasePrimaryView.propTypes };
-export default RHDPrimaryView;
+ARPrimaryView.propTypes = { ...ARBasePrimaryView.propTypes };
+export default ARPrimaryView;
