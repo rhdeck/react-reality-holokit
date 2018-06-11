@@ -13,7 +13,6 @@ import ARPrimaryView from "./ARPrimaryView";
 import ARSecondaryView from "./ARSecondaryView";
 const MetersPerInch = 0.0254;
 const ipd = 0.064;
-console.log("hi there!!!", ipd * PointsPerMeter, PixelsPerPoint, PixelsPerInch);
 const DeviceDB = {
   "iPhone X": { pixels: 2436, ppi: 458, points: 812 },
   "iPhone 6 Plus": { pixels: 2208, ppi: 401, points: 736 },
@@ -32,28 +31,27 @@ const DeviceAliases = {
   "iPhone X": "iPhone X"
 };
 const thisModel = RNDI.getModel();
-const { pixels, ppi, points } = DeviceDB[DeviceAliases[thisModel]];
+const { pixels, ppi, points: pts } = DeviceDB[DeviceAliases[thisModel]];
 class ARDualView extends Component {
   calculateIPD() {
     const ipd = this.props.interPupillaryDistance;
-    const PixelsPerPoint = pixels / points;
-    const MetersPerPixel = MetersPerInch / PixelsPerInch;
+    const PixelsPerPoint = pixels / pts;
+    const MetersPerPixel = MetersPerInch / ppi;
     const MetersPerPoint = MetersPerPixel * PixelsPerPoint;
     const PointsPerMeter = 1 / MetersPerPoint;
     const points = ipd * PointsPerMeter;
     return points;
   }
-  getCurrentDevice() {
-    Platform.dev;
-  }
   render() {
+    const ipd = this.calculateIPD();
+    const w = ipd * 2;
     return (
       <View
         style={{
           ...this.props.style,
           height: "100%",
           width: "100%",
-          backgroundColor: "red",
+          backgroundColor: "#333",
           alignItems: "center"
         }}
       >
@@ -62,18 +60,20 @@ class ARDualView extends Component {
             ...this.props.style,
             flexDirection: "row",
             height: "100%",
-            width: this.calculateIPD() * 2
+            width: w
           }}
         >
           <ARPrimaryView
             {...this.props}
             style={{
-              flex: 1
+              flex: 1,
+              width: ipd
             }}
           />
           <ARSecondaryView
             style={{
-              flex: 1
+              flex: 1,
+              width: ipd
             }}
           />
         </View>
