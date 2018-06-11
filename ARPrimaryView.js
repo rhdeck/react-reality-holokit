@@ -16,7 +16,6 @@ class ARBasePrimaryView extends Component {
     } else {
       out.push(this.props.children);
     }
-    console.log("primary", out);
     return out;
   }
   componentDidMount() {
