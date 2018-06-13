@@ -28,7 +28,10 @@ class ARBasePrimaryView extends Component {
 ARBasePrimaryView.propTypes = {
   interPupilaryDistance: PropTypes.number,
   start: PropTypes.func,
-  stop: PropTypes.func
+  stop: PropTypes.func,
+  holoOffsetX: PropTypes.number,
+  holoOffsetY: PropTypes.number,
+  holoOffsetZ: PropTypes.number
 };
 const NativeV = requireNativeComponent("ARPrimaryView", ARBasePrimaryView);
 const ARPrimaryView = props => {

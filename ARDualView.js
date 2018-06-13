@@ -69,6 +69,9 @@ class ARDualView extends Component {
               flex: 1,
               width: ipd
             }}
+            holoOffsetZ={0.15}
+            holoOffsetY={-0.08}
+            holoOffsetX={0.05}
           />
           <ARSecondaryView
             style={{
