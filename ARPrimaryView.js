@@ -1,22 +1,39 @@
 import { requireNativeComponent } from "react-native";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import { ARSessionConsumer } from "react-reality";
+import { ARSessionConsumer, ARSessionProvider } from "react-reality";
 class ARBasePrimaryView extends Component {
   render() {
-    var out = [
-      <NativeV {...this.props} children={null} key="ARPrimaryViewNative" />
+    return [
+      <NativeV {...this.props} children={null} key="ARPrimaryViewNative" />,
+      <ARSessionConsumer key="ARPrimaryViewConsumer">
+        {({ isStarted }) => {
+          if (typeof isStarted === "undefined") {
+            return (
+              <ARSessionProvider
+                gravity={
+                  this.props.gravity
+                    ? this.props.gravity
+                    : ARSessionProvider.defaultProps.gravity
+                }
+              >
+                {typeof this.props.children == "function" ? (
+                  <ARSessionConsumer>this.props.children</ARSessionConsumer>
+                ) : this.props.children ? (
+                  this.props.children
+                ) : null}
+              </ARSessionProvider>
+            );
+          } else {
+            return typeof this.props.children == "function" ? (
+              <ARSessionConsumer>this.props.children</ARSessionConsumer>
+            ) : this.props.children ? (
+              this.props.children
+            ) : null;
+          }
+        }}
+      </ARSessionConsumer>
     ];
-    if (typeof this.props.children == "function") {
-      out.push(
-        <ARSessionConsumer key="ARPrimaryViewConsumer">
-          {this.props.children}
-        </ARSessionConsumer>
-      );
-    } else {
-      out.push(this.props.children);
-    }
-    return out;
   }
   componentDidMount() {
     if (typeof this.props.start == "function") this.props.start();
