@@ -86,7 +86,7 @@ ARDualView.propTypes = {
 };
 ARDualView.defaultProps = {
   interPupillaryDistance: 0.064,
-  holoOffsetZ: 0.15,
+  holoOffsetZ: 0.08,
   holoOffsetY: -0.08,
   holoOffsetX: 0.05,
   fieldOfView: 60
