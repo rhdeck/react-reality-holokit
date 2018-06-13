@@ -31,7 +31,8 @@ ARBasePrimaryView.propTypes = {
   stop: PropTypes.func,
   holoOffsetX: PropTypes.number,
   holoOffsetY: PropTypes.number,
-  holoOffsetZ: PropTypes.number
+  holoOffsetZ: PropTypes.number,
+  fieldOfView: PropTypes.number
 };
 const NativeV = requireNativeComponent("ARPrimaryView", ARBasePrimaryView);
 const ARPrimaryView = props => {

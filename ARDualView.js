@@ -69,9 +69,6 @@ class ARDualView extends Component {
               flex: 1,
               width: ipd
             }}
-            holoOffsetZ={0.15}
-            holoOffsetY={-0.08}
-            holoOffsetX={0.05}
           />
           <ARSecondaryView
             style={{
@@ -88,6 +85,10 @@ ARDualView.propTypes = {
   ...ARPrimaryView.propTypes
 };
 ARDualView.defaultProps = {
-  interPupillaryDistance: 0.064
+  interPupillaryDistance: 0.064,
+  holoOffsetZ: 0.15,
+  holoOffsetY: -0.08,
+  holoOffsetX: 0.05,
+  fieldOfView: 60
 };
 export default ARDualView;
